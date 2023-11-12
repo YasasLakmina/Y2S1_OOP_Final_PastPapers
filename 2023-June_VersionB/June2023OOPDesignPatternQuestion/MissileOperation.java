@@ -1,5 +1,5 @@
-package June2023OOPDesignPatternQuestion;
+package WarSystemCommandPatternQuestion;
 
 public interface MissileOperation {
-	public void initiateOperation(String location);
+	public void initiateoperation(String location);
 }

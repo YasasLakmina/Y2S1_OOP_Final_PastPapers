@@ -1,12 +1,18 @@
-package June2023OOPDesignPatternQuestion;
+package WarSystemCommandPatternQuestion;
 
 public class LaunchMissile implements MissileOperation{
 
-	MissileSystem mSystem;
+	MissileSystem missile;
 	
+	public LaunchMissile(MissileSystem missile) {
+		this.missile = missile;
+	}
+
+
+
 	@Override
-	public void initiateOperation(String location) {
-		mSystem.launch(location);
+	public void initiateoperation(String location) {
+		missile.launch(location);
 	}
 
 }

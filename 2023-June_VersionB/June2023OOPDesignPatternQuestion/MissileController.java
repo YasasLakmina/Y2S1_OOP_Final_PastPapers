@@ -1,37 +1,35 @@
-package June2023OOPDesignPatternQuestion;
+package WarSystemCommandPatternQuestion;
 
 public class MissileController {
-	MissileOperation launch;
-	MissileOperation blast;
 	
-	void setOperation(MissileOperation launch, MissileOperation blast) {
-		this.launch = launch;
-		this.blast = blast;
-	}
+	private MissileOperation launch;
+	private MissileOperation blast;
 	
 	private static MissileController uniqueInst;
 	
 	private MissileController() {
-		
+		System.out.println("Initialize Missile Controler....");
 	}
 	
-	private static MissileController getInst() {
+	public static MissileController getInst() {
 		if(uniqueInst == null) {
 			synchronized(MissileController.class) {
-				if(uniqueInst == null) {
-					uniqueInst = new MissileController();
-				}
+				uniqueInst = new MissileController();
 			}
 		}
-		
 		return uniqueInst;
 	}
 	
-	void performLunching(String start) {
-		this.launch.initiateOperation(start);
+	public void setOperations(MissileOperation launch , MissileOperation blast) {
+		this.launch = launch;
+		this.blast = blast;
 	}
 	
-	void performBlasting(String end) {
-		this.blast.initiateOperation(end);
+	public void performLaunching(String start) {
+		launch.initiateoperation(start);
+	}
+	
+	public void performBlsting(String end) {
+		blast.initiateoperation(end);
 	}
 }

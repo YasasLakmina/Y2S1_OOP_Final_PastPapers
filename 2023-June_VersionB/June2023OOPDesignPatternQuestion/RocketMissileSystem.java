@@ -1,33 +1,35 @@
-package June2023OOPDesignPatternQuestion;
+package WarSystemCommandPatternQuestion;
 
 public class RocketMissileSystem implements MissileSystem{
+
+	private static RocketMissileSystem uniqueInst;
 	
-	private static RocketMissileSystem uniqueinst;
-	
-	private RocketMissileSystem() {
-		System.out.println("Initialize Rocket Missile System...");
+	private RocketMissileSystem(){
+		System.out.println("Initialize Rocket Missile System....");
 	}
 	
-	public static RocketMissileSystem getInst() {
-		if(uniqueinst == null) {
+	public static RocketMissileSystem getInstance() {
+		if(uniqueInst == null) {
 			synchronized(RocketMissileSystem.class) {
-				if(uniqueinst == null) {
-					uniqueinst = new RocketMissileSystem();
+				if(uniqueInst == null) {
+					uniqueInst = new RocketMissileSystem();
 				}
 			}
 		}
-		
-		return uniqueinst;
+		return uniqueInst;
 	}
+	
+	
 	
 	@Override
 	public void launch(String source) {
-		
+		System.out.print("Rocket Missile launch from " + source);
 	}
 
 	@Override
 	public void blast(String destination) {
-		
+		System.out.println(" and Rocket Missile blast Flight " + destination);
 	}
 
+	
 }

@@ -1,13 +1,14 @@
-package June2023OOPDesignPatternQuestion;
+package WarSystemCommandPatternQuestion;
 
 public class HeatMissileSystem implements MissileSystem{
+
 	private static HeatMissileSystem uniqueInst;
 	
-	private HeatMissileSystem() {
-		System.out.println("Inizialize Heat Missile System...");
+	private HeatMissileSystem(){
+		System.out.println("Inizialize Heat Missile System....");
 	}
 	
-	private static HeatMissileSystem getInst() {
+	public static HeatMissileSystem getInstance() {
 		if(uniqueInst == null) {
 			synchronized(HeatMissileSystem.class) {
 				if(uniqueInst == null) {
@@ -15,19 +16,18 @@ public class HeatMissileSystem implements MissileSystem{
 				}
 			}
 		}
-		
 		return uniqueInst;
 	}
 	
-	
 	@Override
 	public void launch(String source) {
-		uniqueInst.launch(source);
+		System.out.print("Heat Missile launch from " + source);
 	}
 
 	@Override
 	public void blast(String destination) {
-		uniqueInst.blast(destination);
+		System.out.println(" and Heat Missile blast Flight " + destination);
 	}
+
 
 }
